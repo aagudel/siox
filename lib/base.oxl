@@ -1,0 +1,5 @@
+	Include<P16F873.INC>   
+	LIST P=16F873, R=HEX
+
+S0__	EQU	021H
+S1__	EQU	022H

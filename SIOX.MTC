@@ -1,0 +1,22 @@
+// Herramientas del lenguaje SIOX
+// 
+//
+
+
+[Tool]
+Tool=Compilador SIOX
+SourceExtension=ox
+HeaderExtension=h
+ScriptExtension=
+DefaultOptions=
+MultipleNodes=0
+UsesCommandFile=1
+
+// must be first in list, so it's first in our list
+[0]
+Description=Processor
+Switch=/p
+Data=1
+MultipleOptions=0
+ProcessorSwitch=Switch
+Hidden=0

@@ -1,0 +1,136 @@
+SIOX
+----
+
+Sioxc es un compilador del lenguaje Siox que genera código assembler 
+del PIC 16f873. Siox es un lenguaje de programación que permite 
+funciones simples (no recursivas), sentencias matemáticas (sumas 
+y restas), lógicas (or, and) y de control de flujo (if, if else, while,
+etc), considerando las limitaciones del PIC.
+
+Siox fue escrito en Lex, Bison y C, es un compilador de una sola pasada
+que traduce por sintaxis.
+
+DESCRIPCIÓN DE LOS ARCHIVOS
+---------------------------
+
+sioxc.exe	Compilador de siox
+siox.exe 	Programa manejador que hace la interfáz con Mplab
+siox.mtc	Archivo de configuración del lenguaje en Mplab
+tlsiox.ini	Archivo de inicialización para soporte de Siox
+		en Mplab
+p16f873.inc	Archivo de cabecera parta el pic 16f873
+leame.txt 	Este archivo
+/doc 		Manual de Siox y Sioxc
+/ejemplos	Archivos con algunos programas ejemplo de uso del
+		lenguaje y las librerías
+/src		Código fuente de Siox y Sioxc		
+/lib		Librerías para Sioxc
+
+INSTALACIÓN Y USO
+-----------------
+
+Para instalar sioxc:
+
+1. Cierre Mplab si lo está usando.
+
+2. Descomprima el archivo donde se encuentra sioxc si esta comprimido 
+   o copie todos los archivos si no lo está en la carpeta principal 
+   del Mplab. No olvide incluir la carpeta \lib. 
+
+3. Ingrese a Mplab y selección crear un nuevo proyecto, dele un nombre.
+   En la ventana 'Edit Project' en 'Languaje Tool Suite' despliegue la
+   lista y busque Siox. Seleccione el archivo 'hex' e Ingrese a 'Node 
+   Properties' y de OK.
+
+4. Adicione un nodo con 'Add Node', usando un archivo.ox, y de OK.
+
+5. Abra el archivo que va a utilizar y edítelo usando el lenguaje Siox.
+
+6. IMPORTANTE: antes de compilar debe instalar el compilador, haga esto
+   por el menú 'Project' y seleccione 'Install Languaje Tool'. 
+   En la línea 'Executable' busque el archivo SIOX.EXE 
+   (no use sioxc.exe aquí) y seleccione la opción Windowed y de OK.
+   Este paso solo debe hacerlo una vez, para la próxima vez que cree
+   un proyecto con el lenguaje Siox, Mplab seleccionará el compilador.
+
+7. Para crear el .hex, que es el archivo que se pasará al PIC compile
+   normalmente con 'Build' o 'Make' del menú project. Espere los 
+   resultados. El programa manejador siox.exe abrirá una consola para
+   compilar, donde saldrán los posibles mensajes de error.
+   Para continuar cierre esa ventana.
+
+8. Usted podrá ahora, si no hubo errores abrir el archivo .asm. Trate 
+  de no hacer modificaciones directamente en ese archivo sin hacer 
+  copias, pues si vuelve a compilar con sioxc se sobrescribirá.
+
+Para el uso normal luego de instalarlo repita los pasos 3,4,5,7 y 8.        
+
+Recuerde que el proceso de compilación es diferente al de ensamblaje, 
+a pesar de que el programa se compile correctamente, al momento de 
+ensamblarlo pueden ocurrir errores. El ensamblaje lo hace el mpasm.exe.
+
+Si desea usar el compilador fuera de la IDE de Mplab ignore el 
+ejecutable siox.exe y utilice sioxc.exe en la línea de comandos de DOS
+seguido por el nombre del archivo donde creó el programa. Se generará, 
+si no se presentan errores un archivo .asm que usted puede compilar con
+mpasm.exe o mpasmwin.exe.
+
+EL PROGRAMA BÁSICO
+------------------
+
+Un programa en Siox se compone de tres bloques, cualquier programa debe
+incluir:
+
+#var#
+;Declaración de variables
+#fnn#
+;Declaración de funciones
+#ppl#
+;El programa principal
+#end#
+
+El programa anterior es aceptado por el compilador sioxc. Un programa
+más completo sería:
+
+#var#
+
+ byte a=10.
+ byte b=30.
+
+#fnn#
+ byte max(byte p1,p2)
+ {
+  if(p1>=p2)
+  {
+   return p1.
+  }
+  else
+  {
+   return p2.
+  }
+ }
+#ppl#
+ 
+ $PORTA=max(a,b).
+
+#end#
+
+El programa anterior declara dos variables a y b, la función máximo de
+dos números. Luego llama a esta función y le asigna el valor que 
+retorna al puerto B del PIC. 
+
+La gran mayoría de operaciones o sentencias en Siox termina con un '.',
+los signos de agrupación son parecidos a los de C, aunque internamente
+Siox es muy diferente de C, especialmente por la arquitectura del PIC. 
+
+PARA MAS INFORMACIÓN
+--------------------
+Escríbame a aagudel6@eafit.edu.co, para sugerencias o si tiene algún
+problema con algún programa envíe el código fuente, el archivo 
+su_programa.err y los mensajes de error del compilador (use el
+modificador de redirección  '> archivo.txt' en DOS después de la línea
+de comando del compilador para guardar los errores en ese archivo).
+
+Andrés Agudelo Toro
+aagudel6@eafit.edu.co
+Universidad EAFIT
