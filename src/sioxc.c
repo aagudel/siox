@@ -23,7 +23,7 @@ int main(int argc,char **argv)
    char librerias[256];
    FILE* prev;
 
-   printf("\nSIOXC v0.8 por Andres Agudelo Toro(aagudel6@eafit.edu.co)\n\n");
+   printf("\nSIOXC v0.8 por Andres Agudelo-Toro\n\n");
 
    get_exe_dir(directorio_actual,argv[0]);
 

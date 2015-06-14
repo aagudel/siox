@@ -125,12 +125,11 @@ Siox es muy diferente de C, especialmente por la arquitectura del PIC.
 
 PARA MAS INFORMACIÓN
 --------------------
-Escríbame a aagudel6@eafit.edu.co, para sugerencias o si tiene algún
+Escríbame para sugerencias o si tiene algún
 problema con algún programa envíe el código fuente, el archivo 
 su_programa.err y los mensajes de error del compilador (use el
 modificador de redirección  '> archivo.txt' en DOS después de la línea
 de comando del compilador para guardar los errores en ese archivo).
 
-Andrés Agudelo Toro
-aagudel6@eafit.edu.co
+Andres Agudelo-Toro
 Universidad EAFIT
