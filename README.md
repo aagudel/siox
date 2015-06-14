@@ -1,6 +1,6 @@
 # SIOX
 
-SIOXC is a simple PIC-16F873 compiler. It used a simple language called SIOX and generated PIC assembler. Siox was coded in LEX, YACC and C. It was integrated with the Microchip MPLAB IDE. Source code, executable and docs (Spanish).
+SIOX is a simple programming language for the PIC-16F873.  SIOXC is a simple compiler producing PIC assembler. Siox was coded in LEX, YACC and C and was integrated to the Microchip MPLAB IDE. Source code, executable and docs are in Spanish. This code was written in 2001 for a School project.
 
 Sioxc es un compilador del lenguaje Siox que genera código assembler del PIC 16f873. Siox es un lenguaje de programación que permite funciones simples (no recursivas), sentencias matemáticas (sumas y restas), lógicas (or, and) y de control de flujo (if, if else, while, etc), considerando las limitaciones del PIC.
 
@@ -282,5 +282,5 @@ su_programa.err y los mensajes de error del compilador (use el
 modificador de redirección  '> archivo.txt' en DOS después de la línea
 de comando del compilador para guardar los errores en ese archivo).
 
-Copyright Andres Agudelo-Toro
+Copyright 2001 Andres Agudelo-Toro
 Universidad EAFIT
